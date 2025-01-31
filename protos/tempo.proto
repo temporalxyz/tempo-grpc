@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+
+// Service which streams transactions from decoded shreds.
+// May be unordered.
+service TransactionStream {
+    rpc OpenTransactionStream (StartStream) returns (stream Transaction);
+}
+
+// Client sents this message to start the transaction stream,
+// if the auth token is valid
+message StartStream {
+    string auth_token = 1; // Authentication token
+}
+
+// Transaction which was read from shreds.
+message Transaction {
+    uint64 slot   = 1;      // First metadata field
+    uint64 index  = 2;      // Second metadata field
+    bytes payload = 3;      // Variable-length binary payload
+}
