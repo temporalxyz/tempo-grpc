@@ -18,7 +18,7 @@ message StartStream {
 
 // Transaction which was read from shreds.
 message Transaction {
-    uint64 slot   = 1;      // First metadata field
-    uint64 index  = 2;      // Second metadata field
+    uint64 slot   = 1;      // Slot for shred in which the transaction was found
+    uint64 index  = 2;      // Transaction index within the slot/block
     bytes payload = 3;      // Variable-length binary payload
 }
