@@ -10,7 +10,7 @@ service TransactionStream {
     rpc OpenTransactionStream (StartStream) returns (stream Transaction);
 }
 
-// Client sents this message to start the transaction stream,
+// Client sends this message to start the transaction stream,
 // if the auth token is valid
 message StartStream {
     string auth_token = 1; // Authentication token
