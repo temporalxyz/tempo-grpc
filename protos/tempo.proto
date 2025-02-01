@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+package tempo;
+
+option go_package = "tempo-grpc/go/gen;tempo";
 
 // Service which streams transactions from decoded shreds.
 // May be unordered.

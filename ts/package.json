@@ -1,0 +1,19 @@
+{
+  "name": "tempo-ts-client",
+  "version": "1.0.0",
+  "main": "client.ts",
+  "license": "MIT",
+  "scripts": {
+    "gen:proto": "protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./generated --ts_proto_opt=esModuleInterop=true,outputServices=grpc-js --proto_path=../protos tempo.proto",
+    "start": "ts-node --project tsconfig.json client.ts"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.8.12",
+    "@grpc/proto-loader": "^0.7.5"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "ts-proto": "^2.6.1",
+    "typescript": "^4.9.5"
+  }
+}
