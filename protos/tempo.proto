@@ -8,12 +8,18 @@ option go_package = "tempo-grpc/go/gen;tempo";
 // May be unordered.
 service TransactionStream {
     rpc OpenTransactionStream (StartStream) returns (stream Transaction);
+    rpc OpenTransactionStreamV2 (StartStreamV2) returns (stream Transaction);
 }
 
 // Client sends this message to start the transaction stream,
 // if the auth token is valid
 message StartStream {
     string auth_token = 1; // Authentication token
+}
+
+message StartStreamV2 {
+    string auth_token = 1; // Authentication token
+    repeated bytes static_account_filter = 2; // Static account filters
 }
 
 // Transaction which was read from shreds.
